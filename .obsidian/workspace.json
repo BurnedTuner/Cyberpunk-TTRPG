@@ -4,21 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "1f8503d23ac47a10",
+        "id": "214823a82d3225ac",
         "type": "tabs",
         "children": [
           {
-            "id": "05529ecfaaa0ec63",
+            "id": "717d58c36d2d9386",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Роли.md",
+                "file": "Роли/Рокербои.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Роли"
+              "title": "Рокербои"
+            }
+          }
+        ]
+      },
+      {
+        "id": "0ce92cf5e8c5f00c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7721673ef9229696",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -74,8 +90,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -169,11 +184,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "05529ecfaaa0ec63",
+  "active": "717d58c36d2d9386",
   "lastOpenFiles": [
-    "cyberpunk-obsidian",
-    "Памятка игрока.md",
     "Роли.md",
+    "Роли/Рокербои.md",
+    "Роли/Технари.md",
+    "Main.md",
+    "Роли/Экзеки.md",
+    "Роли/Кочевники.md",
+    "Роли/Фиксеры.md",
+    "Роли/Законники.md",
+    "Роли/Медиа.md",
+    "Роли/Медтехи.md",
+    "Роли/Соло.md",
+    "Роли/Нетраннеры.md",
+    "Роли",
+    "cyberpunk-obsidian",
     "Welcome.md"
   ]
 }
