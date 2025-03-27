@@ -1,4 +1,9 @@
-#main
+---
+title: Добро пожаловать в мир Cyberpunk RED
+draft: false
+tags:
+  - main
+---
 **Значит, ты хочешь стать Киберпанком?**  
 - [[Роли/index|Роли]]
 - [[Бой/index|Бой]]
