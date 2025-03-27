@@ -2,83 +2,95 @@ import { Translation } from "./definition"
 
 export default {
   propertyDefaults: {
-    title: "Untitled",
-    description: "No description provided",
+    title: "Без названия",
+    description: "Описание отсутствует",
   },
   components: {
     callout: {
-      note: "Note",
-      abstract: "Abstract",
-      info: "Info",
-      todo: "Todo",
-      tip: "Tip",
-      success: "Success",
-      question: "Question",
-      warning: "Warning",
-      failure: "Failure",
-      danger: "Danger",
-      bug: "Bug",
-      example: "Example",
-      quote: "Quote",
+      note: "Заметка",
+      abstract: "Резюме",
+      info: "Инфо",
+      todo: "Сделать",
+      tip: "Подсказка",
+      success: "Успех",
+      question: "Вопрос",
+      warning: "Предупреждение",
+      failure: "Неудача",
+      danger: "Опасность",
+      bug: "Баг",
+      example: "Пример",
+      quote: "Цитата",
     },
     backlinks: {
-      title: "Backlinks",
-      noBacklinksFound: "No backlinks found",
+      title: "Обратные ссылки",
+      noBacklinksFound: "Обратные ссылки отсутствуют",
     },
     themeToggle: {
-      lightMode: "Light mode",
-      darkMode: "Dark mode",
+      lightMode: "Светлый режим",
+      darkMode: "Тёмный режим",
     },
     explorer: {
-      title: "Explorer",
+      title: "Проводник",
     },
     footer: {
-      createdWith: "Created with",
+      createdWith: "Создано с помощью",
     },
     graph: {
-      title: "Graph View",
+      title: "Вид графа",
     },
     recentNotes: {
-      title: "Recent Notes",
-      seeRemainingMore: ({ remaining }) => `See ${remaining} more →`,
+      title: "Недавние заметки",
+      seeRemainingMore: ({ remaining }) =>
+        `Посмотреть оставш${getForm(remaining, "уюся", "иеся", "иеся")} ${remaining} →`,
     },
     transcludes: {
-      transcludeOf: ({ targetSlug }) => `Transclude of ${targetSlug}`,
-      linkToOriginal: "Link to original",
+      transcludeOf: ({ targetSlug }) => `Переход из ${targetSlug}`,
+      linkToOriginal: "Ссылка на оригинал",
     },
     search: {
-      title: "Search",
-      searchBarPlaceholder: "Search for something",
+      title: "Поиск",
+      searchBarPlaceholder: "Найти что-нибудь",
     },
     tableOfContents: {
-      title: "Table of Contents",
+      title: "Оглавление",
     },
     contentMeta: {
-      readingTime: ({ minutes }) => `${minutes} min read`,
+      readingTime: ({ minutes }) => `время чтения ~${minutes} мин.`,
     },
   },
   pages: {
     rss: {
-      recentNotes: "Recent notes",
-      lastFewNotes: ({ count }) => `Last ${count} notes`,
+      recentNotes: "Недавние заметки",
+      lastFewNotes: ({ count }) =>
+        `Последн${getForm(count, "яя", "ие", "ие")} ${count} замет${getForm(count, "ка", "ки", "ок")}`,
     },
     error: {
-      title: "Not Found",
-      notFound: "Either this page is private or doesn't exist.",
-      home: "Return to Homepage",
+      title: "Страница не найдена",
+      notFound: "Эта страница приватная или не существует",
+      home: "Вернуться на главную страницу",
     },
     folderContent: {
-      folder: "Folder",
+      folder: "Папка",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 item under this folder." : `${count} items under this folder.`,
+        `в этой папке ${count} элемент${getForm(count, "", "а", "ов")}`,
     },
     tagContent: {
-      tag: "Tag",
-      tagIndex: "Tag Index",
-      itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 item with this tag." : `${count} items with this tag.`,
-      showingFirst: ({ count }) => `Showing first ${count} tags.`,
-      totalTags: ({ count }) => `Found ${count} total tags.`,
+      tag: "Тег",
+      tagIndex: "Индекс тегов",
+      itemsUnderTag: ({ count }) => `с этим тегом ${count} элемент${getForm(count, "", "а", "ов")}`,
+      showingFirst: ({ count }) =>
+        `Показыва${getForm(count, "ется", "ются", "ются")} ${count} тег${getForm(count, "", "а", "ов")}`,
+      totalTags: ({ count }) => `Всего ${count} тег${getForm(count, "", "а", "ов")}`,
     },
   },
 } as const satisfies Translation
+
+function getForm(number: number, form1: string, form2: string, form5: string): string {
+  const remainder100 = number % 100
+  const remainder10 = remainder100 % 10
+
+  if (remainder100 >= 10 && remainder100 <= 20) return form5
+  if (remainder10 > 1 && remainder10 < 5) return form2
+  if (remainder10 == 1) return form1
+  return form5
+}
