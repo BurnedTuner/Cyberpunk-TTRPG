@@ -1,0 +1,12 @@
+services:
+  cyberpunk-ttrpg:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cyberpunk-ttrpg
+    restart: unless-stopped
+    ports:
+      - "20082:8080"
+    volumes:
+      - ./content:/usr/src/app/content
+      - ./.git:/usr/src/app/.git
